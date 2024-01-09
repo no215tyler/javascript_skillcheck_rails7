@@ -1,3 +1,13 @@
+const buildHTML = (XHR) => {
+  const item = XHR.response.post;
+  const html = `
+    <div class="article">
+      ${item.text}
+    </div>`;
+    return html;
+};
+
+
 
 const post = () => {
   const form = document.getElementById('form');
@@ -9,8 +19,10 @@ const post = () => {
     XHR.responseType = 'json';
     XHR.send(formData);
     XHR.onload = () => {
-
-
+      const contentsArea = document.getElementById('contents_area');
+      const articleText = document.getElementById('article_text');
+      contentsArea.insertAdjacentHTML('afterBegin', buildHTML(XHR));
+      articleText.value = '';
     };    
   });
  };
