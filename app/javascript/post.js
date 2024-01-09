@@ -27,6 +27,8 @@ const post = () => {
       const articleText = document.getElementById('article_text');
       contentsArea.insertAdjacentHTML('afterBegin', buildHTML(XHR));
       articleText.value = '';
+      const charNum = document.getElementById('char_num');
+      charNum.innerHTML = "0文字";
     };    
   });
  };
