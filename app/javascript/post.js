@@ -1,3 +1,4 @@
+
 const post = () => {
   const form = document.getElementById('form');
   form.addEventListener('submit', (e) =>{
@@ -7,7 +8,10 @@ const post = () => {
     XHR.open('POST', '/articles', true);
     XHR.responseType = 'json';
     XHR.send(formData);
-    console.log(formData);
+    XHR.onload = () => {
+
+
+    };    
   });
  };
 
